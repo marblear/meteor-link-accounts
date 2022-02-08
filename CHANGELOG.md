@@ -1,5 +1,25 @@
 # Changelog
 
+## v. 2.4.1 - 10.11.2021
+* Upgrade eslint-parser
+* Fix wrong uppercase in the word `linkedIn` for `pauli:linkedin-oauth`
+
+## v. 2.4.0 - 24.6.2021
+
+* Updated dependencies
+* Compatibility update for Meteor 2.3
+
+## v. 2.3.2 - 8.2.2021
+* Fix bugs in MS Office connector
+
+## v. 2.3.1 - 8.2.2021
+* Fix a detection bug in MS Office connector
+
+## v. 2.3.0 - 29.1.2021
+* Added extra check on linking accounts and made connection errors provide a bit more information
+* Updated development dependencies
+* Add support for MS Office 365 logins via `lindoelio:accounts-office365` and `ermlab:accounts-office365`
+
 ## v. 2.2.1 - 6.9.2020
 * Fix Meteor Developer Accounts link
 

@@ -1,8 +1,8 @@
 {
   "name": "meteor-link-accounts",
-  "version": "2.2.1",
+  "version": "2.4.1",
   "private": true,
-  "description": "Template Meteor package for FOSS",
+  "description": "Link social accounts for Meteor",
   "main": "package.js",
   "repository": {
     "type": "git",
@@ -18,11 +18,12 @@
     "lint": "./node_modules/.bin/standard --fix",
     "publish": "meteor npm i && npm prune --production && meteor publish && meteor npm i",
     "all-contributors": "./node_modules/.bin/all-contributors",
-    "all-contributors-generate": "./node_modules/.bin/all-contributors generate"
+    "all-contributors-generate": "./node_modules/.bin/all-contributors generate",
+    "prepare": "husky install"
   },
   "license": "MIT",
   "standard": {
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "globals": [
       "Package"
     ]
@@ -31,15 +32,13 @@
     "type": "GitHub",
     "url": "https://github.com/sponsors/StorytellerCZ"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "bash preCommit.sh"
-    }
-  },
   "devDependencies": {
-    "all-contributors-cli": "^6.17.1",
-    "babel-eslint": "^10.1.0",
-    "husky": "^4.2.5",
-    "standard": "^14.3.4"
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-env": "^7.16.0",
+    "@types/meteor": "^1.4.84",
+    "all-contributors-cli": "^6.20.0",
+    "husky": "^7.0.0",
+    "standard": "^16.0.4"
   }
 }
