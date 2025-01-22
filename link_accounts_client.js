@@ -27,24 +27,52 @@ import './community-services/vk'
 import './community-services/wechat'
 import './community-services/line'
 import './community-services/office365'
+import './community-services/web3'
+import './community-services/betapass'
+import './community-services/seznam'
 
-Accounts.oauth.tryLinkAfterPopupClosed = function (credentialToken, callback) {
+Accounts.oauth.tryLinkAfterPopupClosed = function (
+  credentialToken,
+  callback,
+  shouldRetry = true
+) {
   const credentialSecret = OAuth._retrieveCredentialSecret(credentialToken)
+
+  if (!credentialSecret) {
+    if (!shouldRetry) {
+      return
+    }
+    Meteor.setTimeout(
+      () =>
+        Accounts.oauth.tryLinkAfterPopupClosed(
+          credentialToken,
+          callback,
+          false
+        ),
+      500
+    )
+    return
+  }
+
   Accounts.callLoginMethod({
     methodArguments: [
       {
         link: {
-          credentialToken: credentialToken,
-          credentialSecret: credentialSecret
+          credentialToken,
+          credentialSecret
         }
       }
     ],
     userCallback:
       callback &&
       function (err) {
-        // Allow server to specify a specify subclass of errors. We should come
+        // Allow server to specify subclass of errors. We should come
         // up with a more generic way to do this!
-        if (err && err instanceof Meteor.Error && err.error === Accounts.LoginCancelledError.numericError) {
+        if (
+          err &&
+          err instanceof Meteor.Error &&
+          err.error === Accounts.LoginCancelledError.numericError
+        ) {
           callback(new Accounts.LoginCancelledError(err.details))
         } else {
           callback(err)

@@ -1,5 +1,43 @@
 # Changelog
 
+## v. 3.0.1
+* Fix a wrong if statement in the Seznam connector
+
+## v. 3.0.0
+* Removed deprecated providers
+* Minimum support version is Meteor 3.0
+
+## v. 2.9.0
+* Added `storyteller:accounts-seznam`
+
+## v. 2.8.0
+* More async calls have been added through the codebase
+* Minimum Meteor version is `2.9.11`
+* Deprecated `lichthagel:accounts-discord` which will be removed in v3
+* Betapass client preview added
+* Supports Meteor 3 `alpha-15`
+
+## v. 2.7.1-alpha.1 - 23.8.2023
+* Added build target for Meteor 3 `alpha.11`
+* Updated npm dev dependencies
+
+## v. 2.7.0 - 13.8.2023
+* Added `storyteller:accounts-discord` as a new version for Discord connector
+* Added new build target for Meteor v 2.9.1
+* Add re-tries for popup closures in `tryLinkAfterPopupClosed` to mirror Meteor login behavior and fix issues when `credentialSecret` is not set fast enough
+
+## v. 2.6.1 - 11.5.2022
+* Fixes for web3 login to keep up with change in `freedombase:web3-login`
+
+## v. 2.6.0 - 10.5.2022
+* Added `freedombase:web3-login`
+* Slight code re-format for better readability
+
+## v. 2.5.0 - 9.5.2022
+* Make hooks stoppable
+* Fix commit script
+* Added Apple provider for `quave:accounts-apple` or `bigowl:accounts-apple` package
+
 ## v. 2.4.1 - 10.11.2021
 * Upgrade eslint-parser
 * Fix wrong uppercase in the word `linkedIn` for `pauli:linkedin-oauth`
